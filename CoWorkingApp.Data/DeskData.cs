@@ -15,6 +15,11 @@ namespace CoWorkingApp.Data
             jsonManager = new JsonManager<Desk>();
         }
 
+        public List<Desk> GetAllDesk()
+        {
+            return jsonManager.GetCollection();
+        }
+
         public List<Desk> GetAvalibleDesk()
         {
             return jsonManager.GetCollection().Where(desk => desk.DeskStatus == DeskStatus.Active ).ToList();

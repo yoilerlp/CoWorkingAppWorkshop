@@ -50,5 +50,12 @@ namespace CoWorkingApp.Data {
 
             return reservationCollection.Where(r => r.UserId == userId && r.ReservationDate > DateTime.Now).ToList();
         }
+
+         public List<Reservation> GetReservationHistoryByUserId(Guid userId)
+        {
+            var reservationCollection = jsonManager.GetCollection();
+
+            return reservationCollection.Where(r => r.UserId == userId).ToList();
+        }
     }
 }
