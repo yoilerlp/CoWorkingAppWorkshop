@@ -4,6 +4,7 @@ using CoWorkingApp.Models;
 using System;
 using System.Globalization;
 using System.Linq;
+using CoWorkingApp.Data.Tools;
 namespace CoWorkingApp.App.Services
 {
 
@@ -98,6 +99,32 @@ namespace CoWorkingApp.App.Services
             if(reservationWasCancel) Console.WriteLine("Reservacion cancelada correctamente");
             else Console.WriteLine("Algo salio mal cancelando la reservation");
         }
+
+        public void ChangePasswordUserService(User activeUser)
+        {
+            
+            Console.WriteLine("ingrese su nueva contraseña");
+            activeUser.PassWord = EncryptData.EncryptText(EncryptData.GetPassWord());
+
+            var userWasUpdated = userData.EditUser(activeUser);
+            if(userWasUpdated) Console.WriteLine("Contraseña actualizada correctamente");
+            else Console.WriteLine("Algo salio mal en la actualizacion de la informacion");
+
+
+        }
+
+
+        public void SeeReservacionHistory(User activeUser)
+        {
+            Console.WriteLine("Tus reservas");
+            var userActiveReservations = reservationData.GetReservationHistoryByUserId(activeUser.UserId);
+            var userDesks = deskData.GetAllDesk();
+            foreach (var item in userActiveReservations)
+            {
+                Console.WriteLine($"{userDesks.FirstOrDefault(d => d.DeskId == item.DeskId).Number} - {item.ReservationDate.ToString("dd-MM-yyyy")} - {(item.ReservationDate > DateTime.Now ? "Active" : " ")} ");
+            }
+        }
+
         public void ExecuteAction(MenuUser menuUserOptions, User activeUser)
         {
 
@@ -116,13 +143,13 @@ namespace CoWorkingApp.App.Services
                     }
                 case MenuUser.SeeHistory:
                     {
-                        Console.WriteLine("Opcion : Ver historial");
+                       this.SeeReservacionHistory(activeUser);
 
                         break;
                     }
                 case MenuUser.ChangePassword:
                     {
-                        Console.WriteLine("Opcion : Cambiar contraseña");
+                        this.ChangePasswordUserService(activeUser);
                         break;
                     }
                 default:
