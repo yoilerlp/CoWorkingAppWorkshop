@@ -1,0 +1,16 @@
+[
+  {
+    "UserId": "54097347-5543-4b2c-ad64-fc2803e93333",
+    "Name": "ADMIN",
+    "LastName": "ADMIN",
+    "Email": "ADMIN",
+    "PassWord": "8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92"
+  },
+  {
+    "UserId": "8b3bb06d-a638-4dec-85db-f205040cb776",
+    "Name": "KIRALY",
+    "LastName": "LP",
+    "Email": "kiraly@gmail.com",
+    "PassWord": "1fa8ba2c740696067cb8a931901f4afe58bf258af317ecb0e4dd0e0e6026fd77"
+  }
+]

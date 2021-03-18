@@ -1,0 +1,14 @@
+[
+  {
+    "DeskId": "1d4a74e7-85c4-4c4b-92cd-3f46d085eaa4",
+    "Number": "A-100",
+    "Description": "UN PUESTO DE TRABAJO ADECUADO PARA PROGRAMADORES",
+    "DeskStatus": 1
+  },
+  {
+    "DeskId": "aafb534d-936c-4a2c-9809-1568a4d31ce0",
+    "Number": "A-200",
+    "Description": "UN PUESTO COMODO PARA TRABAJOS DE OFICINA",
+    "DeskStatus": 1
+  }
+]
